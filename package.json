@@ -1,0 +1,26 @@
+{
+  "name": "crowdfunding-generate-database-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts",
+    "build": "tsc",
+    "migrate": "npx sequelize-cli db:migrate",
+    "revert-migration": "npx sequelize-cli db:migrate:undo:all"
+  },
+  "author": "Olaru Valentin Daniel",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "sequelize-typescript": "^2.1.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
