@@ -9,6 +9,13 @@ import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript
 })
 export class Contact extends Model<Contact> {
 
+  @PrimaryKey
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  contact_id!: string; // Primary key for the contact
+
   @Column({
     type: DataType.STRING,
     allowNull: false,

@@ -9,6 +9,13 @@ import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript
 })
 export class Beneficiary extends Model<Beneficiary> {
 
+  @PrimaryKey
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  beneficiary_id!: string; // Primary key for the beneficiary
+
   @Column({
     type: DataType.STRING,
     allowNull: false,

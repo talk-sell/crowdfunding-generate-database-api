@@ -13,6 +13,7 @@
   "author": "Olaru Valentin Daniel",
   "license": "ISC",
   "dependencies": {
+    "crowdfunding-generate-database-api": "file:",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "sequelize-typescript": "^2.1.6"

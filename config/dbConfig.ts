@@ -1,5 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
 import * as dotenv from 'dotenv';
+import { Account } from '../models/Account';
+import { Balance } from '../models/Balance';
+import { Beneficiary } from '../models/Beneficiary';
+import { Contact } from '../models/Contact';
+import { Transfer } from '../models/Transfer';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -14,9 +19,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL!, {
     },
   },
   models: [
-    // Include models here, for example:
-    // __dirname + '/../models/*.ts'
-  
+    Account, Contact, Beneficiary, Balance, Transfer
   ],
 });
 

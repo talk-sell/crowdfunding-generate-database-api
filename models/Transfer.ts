@@ -9,6 +9,13 @@ import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript
 })
 export class Transfer extends Model<Transfer> {
 
+  @PrimaryKey
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  transfer_id!: string; // Primary key for the transfer
+
   @Column({
     type: DataType.STRING,
     allowNull: false,

@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey } from 'sequelize-typescript';
 
 @Table({
   tableName: 'accounts',
@@ -8,6 +8,13 @@ import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript
   updatedAt: 'updated_at', // Map Sequelize's `updatedAt` to `updated_at`
 })
 export class Account extends Model<Account> {
+
+  @PrimaryKey
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  account_id!: string; // Primary key for the account
 
   @Column({
     type: DataType.STRING,
