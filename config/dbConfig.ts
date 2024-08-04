@@ -5,6 +5,8 @@ import { Balance } from '../models/Balance';
 import { Beneficiary } from '../models/Beneficiary';
 import { Contact } from '../models/Contact';
 import { Transfer } from '../models/Transfer';
+import { User } from '../models/User';
+import { UserIdentity } from '../models/UserIdentity';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -19,7 +21,9 @@ const sequelize = new Sequelize(process.env.DATABASE_URL!, {
     },
   },
   models: [
-    Account, Contact, Beneficiary, Balance, Transfer
+    User, UserIdentity, // models for authentification integration
+    Account, Contact, Beneficiary, Balance, Transfer // models for currencycloud integration
+
   ],
 });
 
