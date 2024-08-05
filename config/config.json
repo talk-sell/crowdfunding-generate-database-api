@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": "ud2pp2vap78brq",
+    "password": "pd311f7282b85ed4ac56c0170ddf1608c41c5b3180dc8bb826cae11e7a714de2d",
+    "database": "djoas8crmk1if",
+    "host": "ec2-34-255-40-112.eu-west-1.compute.amazonaws.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  },
+  "test": {
+    "username": "ud2pp2vap78brq",
+    "password": "pd311f7282b85ed4ac56c0170ddf1608c41c5b3180dc8bb826cae11e7a714de2d",
+    "database": "djoas8crmk1if",
+    "host": "ec2-34-255-40-112.eu-west-1.compute.amazonaws.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  },
+  "production": {
+    "username": "ud2pp2vap78brq",
+    "password": "pd311f7282b85ed4ac56c0170ddf1608c41c5b3180dc8bb826cae11e7a714de2d",
+    "database": "djoas8crmk1if",
+    "host": "ec2-34-255-40-112.eu-west-1.compute.amazonaws.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}
