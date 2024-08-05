@@ -225,6 +225,4 @@
 `npx sequelize-cli model:generate --name InterestPayment --attributes investmentId:integer,paymentDate:date,amount:decimal,mainInvestmentReceived:boolean,remainingInterest:decimal`
 
 
-
-
 # After all models are generated, I will make some manual changes

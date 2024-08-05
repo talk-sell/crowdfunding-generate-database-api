@@ -10,10 +10,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       campaignId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Campaigns', // assuming you have a Campaigns table
+          key: 'id'
+        }
       },
       imageUrl: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

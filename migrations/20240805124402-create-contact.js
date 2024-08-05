@@ -10,16 +10,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       login_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       first_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       last_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       account_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Accounts', // assuming you have an Accounts table
+          key: 'id'
+        }
       },
       account_name: {
         type: Sequelize.STRING
@@ -34,7 +42,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       email_address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       mobile_phone_number: {
         type: Sequelize.STRING

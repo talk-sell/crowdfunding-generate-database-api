@@ -14,23 +14,64 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Account.init({
-    account_name: DataTypes.STRING,
-    legal_entity_type: DataTypes.STRING,
-    street: DataTypes.STRING,
-    city: DataTypes.STRING,
-    country: DataTypes.STRING,
-    postal_code: DataTypes.STRING,
-    brand: DataTypes.STRING,
-    your_reference: DataTypes.STRING,
-    status: DataTypes.STRING,
-    state_or_province: DataTypes.STRING,
-    spread_table: DataTypes.STRING,
-    api_trading: DataTypes.BOOLEAN,
-    online_trading: DataTypes.BOOLEAN,
-    phone_trading: DataTypes.BOOLEAN,
-    identification_type: DataTypes.STRING,
-    identification_value: DataTypes.STRING,
-    terms_and_conditions_accepted: DataTypes.BOOLEAN
+    account_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    legal_entity_type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    street: {
+      type: DataTypes.STRING
+    },
+    city: {
+      type: DataTypes.STRING
+    },
+    country: {
+      type: DataTypes.STRING
+    },
+    postal_code: {
+      type: DataTypes.STRING
+    },
+    brand: {
+      type: DataTypes.STRING
+    },
+    your_reference: {
+      type: DataTypes.STRING
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    state_or_province: {
+      type: DataTypes.STRING
+    },
+    spread_table: {
+      type: DataTypes.STRING
+    },
+    api_trading: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    online_trading: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    phone_trading: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    identification_type: {
+      type: DataTypes.STRING
+    },
+    identification_value: {
+      type: DataTypes.STRING
+    },
+    terms_and_conditions_accepted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'Account',

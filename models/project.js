@@ -14,16 +14,44 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Project.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    category: DataTypes.STRING,
-    location: DataTypes.STRING,
-    videoUrl: DataTypes.STRING,
-    ProjectValue: DataTypes.DECIMAL,
-    numberOfInvestors: DataTypes.INTEGER,
-    averageInterestRate: DataTypes.DECIMAL,
-    fundingProgress: DataTypes.DECIMAL,
-    status: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    videoUrl: {
+      type: DataTypes.STRING
+    },
+    ProjectValue: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    numberOfInvestors: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
+    averageInterestRate: {
+      type: DataTypes.DECIMAL(5, 2)
+    },
+    fundingProgress: {
+      type: DataTypes.DECIMAL(5, 2),
+      defaultValue: 0.0
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Project',

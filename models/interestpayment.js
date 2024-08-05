@@ -11,14 +11,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      InterestPayment.belongsTo(models.Investments, { foreignKey: 'investmentId' });
     }
   }
   InterestPayment.init({
-    investmentId: DataTypes.INTEGER,
-    paymentDate: DataTypes.DATE,
-    amount: DataTypes.DECIMAL,
-    mainInvestmentReceived: DataTypes.BOOLEAN,
-    remainingInterest: DataTypes.DECIMAL
+    investmentId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Investments',
+        key: 'id'
+      }
+    },
+    paymentDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      allowNull: false
+    },
+    mainInvestmentReceived: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    remainingInterest: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      defaultValue: 0.0
+    }
   }, {
     sequelize,
     modelName: 'InterestPayment',

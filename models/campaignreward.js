@@ -11,13 +11,29 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      CampaignReward.belongsTo(models.Campaign, { foreignKey: 'campaignId' });
     }
   }
   CampaignReward.init({
-    campaignId: DataTypes.INTEGER,
-    tierName: DataTypes.STRING,
-    minimumInvestment: DataTypes.DECIMAL,
-    perks: DataTypes.TEXT
+    campaignId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Campaigns',
+        key: 'id'
+      }
+    },
+    tierName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    minimumInvestment: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    perks: {
+      type: DataTypes.TEXT
+    }
   }, {
     sequelize,
     modelName: 'CampaignReward',

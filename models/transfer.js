@@ -11,16 +11,47 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Transfer.belongsTo(models.Account, { as: 'SourceAccount', foreignKey: 'source_account_id' });
+      Transfer.belongsTo(models.Account, { as: 'DestinationAccount', foreignKey: 'destination_account_id' });
     }
   }
   Transfer.init({
-    source_account_id: DataTypes.INTEGER,
-    destination_account_id: DataTypes.INTEGER,
-    currency: DataTypes.STRING,
-    amount: DataTypes.DECIMAL,
-    status: DataTypes.STRING,
-    reason: DataTypes.TEXT,
-    unique_request_id: DataTypes.STRING
+    source_account_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Accounts',
+        key: 'id'
+      }
+    },
+    destination_account_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Accounts',
+        key: 'id'
+      }
+    },
+    currency: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      allowNull: false
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    reason: {
+      type: DataTypes.TEXT
+    },
+    unique_request_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    }
   }, {
     sequelize,
     modelName: 'Transfer',

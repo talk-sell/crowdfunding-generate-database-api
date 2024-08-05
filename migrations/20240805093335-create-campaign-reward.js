@@ -10,13 +10,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       campaignId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Campaigns', // assuming you have a Campaigns table
+          key: 'id'
+        }
       },
       tierName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       minimumInvestment: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
       },
       perks: {
         type: Sequelize.TEXT

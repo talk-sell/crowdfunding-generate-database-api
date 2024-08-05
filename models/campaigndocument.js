@@ -11,14 +11,33 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      CampaignDocument.belongsTo(models.Campaign, { foreignKey: 'campaignId' });
     }
   }
   CampaignDocument.init({
-    campaignId: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    file: DataTypes.STRING,
-    approved: DataTypes.BOOLEAN,
-    message: DataTypes.TEXT
+    campaignId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Campaigns',
+        key: 'id'
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    file: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    approved: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    message: {
+      type: DataTypes.TEXT
+    }
   }, {
     sequelize,
     modelName: 'CampaignDocument',

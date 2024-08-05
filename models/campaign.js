@@ -11,22 +11,64 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Campaign.belongsTo(models.Project, { foreignKey: 'projectId' });
     }
   }
   Campaign.init({
-    projectId: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    videoUrl: DataTypes.STRING,
-    fundingStartDate: DataTypes.DATE,
-    fundingEndDate: DataTypes.DATE,
-    min_investment: DataTypes.DECIMAL,
-    min_funding: DataTypes.DECIMAL,
-    max_funding: DataTypes.DECIMAL,
-    numberOfInvestors: DataTypes.INTEGER,
-    interestRate: DataTypes.DECIMAL,
-    fundingProgress: DataTypes.DECIMAL,
-    status: DataTypes.STRING
+    projectId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Projects',
+        key: 'id'
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    videoUrl: {
+      type: DataTypes.STRING
+    },
+    fundingStartDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    fundingEndDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    min_investment: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    min_funding: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    max_funding: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
+    },
+    numberOfInvestors: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
+    interestRate: {
+      type: DataTypes.DECIMAL(5, 2)
+    },
+    fundingProgress: {
+      type: DataTypes.DECIMAL(5, 2),
+      defaultValue: 0.0
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Campaign',

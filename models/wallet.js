@@ -14,11 +14,29 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Wallet.init({
-    your_reference: DataTypes.STRING,
-    balance: DataTypes.DECIMAL,
-    earning: DataTypes.DECIMAL,
-    bonus: DataTypes.DECIMAL,
-    is_for: DataTypes.STRING
+    your_reference: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    balance: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      allowNull: false
+    },
+    earning: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      defaultValue: 0.0
+    },
+    bonus: {
+      type: DataTypes.DECIMAL(20, 2), // Adjust precision based on your requirements
+      defaultValue: 0.0
+    },
+    is_for: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: [['user', 'campaign']] // Validates the value is either 'user' or 'campaign'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Wallet',

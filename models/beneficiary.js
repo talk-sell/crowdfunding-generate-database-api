@@ -14,36 +14,98 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Beneficiary.init({
-    bank_account_holder_name: DataTypes.STRING,
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    payment_types: DataTypes.STRING,
-    beneficiary_address: DataTypes.STRING,
-    beneficiary_country: DataTypes.STRING,
-    beneficiary_entity_type: DataTypes.STRING,
-    beneficiary_company_name: DataTypes.STRING,
-    beneficiary_first_name: DataTypes.STRING,
-    beneficiary_last_name: DataTypes.STRING,
-    beneficiary_city: DataTypes.STRING,
-    beneficiary_postcode: DataTypes.STRING,
-    beneficiary_state_or_province: DataTypes.STRING,
-    beneficiary_date_of_birth: DataTypes.DATE,
-    beneficiary_identification_type: DataTypes.STRING,
-    beneficiary_identification_value: DataTypes.STRING,
-    bank_country: DataTypes.STRING,
-    bank_name: DataTypes.STRING,
-    bank_account_type: DataTypes.STRING,
-    currency: DataTypes.STRING,
-    account_number: DataTypes.STRING,
-    routing_code_type_1: DataTypes.STRING,
-    routing_code_value_1: DataTypes.STRING,
-    routing_code_type_2: DataTypes.STRING,
-    routing_code_value_2: DataTypes.STRING,
-    bic_swift: DataTypes.STRING,
-    iban: DataTypes.STRING,
-    default_beneficiary: DataTypes.BOOLEAN,
-    creator_contact_id: DataTypes.INTEGER,
-    bank_address: DataTypes.STRING
+    bank_account_holder_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    name: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING
+    },
+    payment_types: {
+      type: DataTypes.STRING
+    },
+    beneficiary_address: {
+      type: DataTypes.STRING
+    },
+    beneficiary_country: {
+      type: DataTypes.STRING
+    },
+    beneficiary_entity_type: {
+      type: DataTypes.STRING
+    },
+    beneficiary_company_name: {
+      type: DataTypes.STRING
+    },
+    beneficiary_first_name: {
+      type: DataTypes.STRING
+    },
+    beneficiary_last_name: {
+      type: DataTypes.STRING
+    },
+    beneficiary_city: {
+      type: DataTypes.STRING
+    },
+    beneficiary_postcode: {
+      type: DataTypes.STRING
+    },
+    beneficiary_state_or_province: {
+      type: DataTypes.STRING
+    },
+    beneficiary_date_of_birth: {
+      type: DataTypes.DATE
+    },
+    beneficiary_identification_type: {
+      type: DataTypes.STRING
+    },
+    beneficiary_identification_value: {
+      type: DataTypes.STRING
+    },
+    bank_country: {
+      type: DataTypes.STRING
+    },
+    bank_name: {
+      type: DataTypes.STRING
+    },
+    bank_account_type: {
+      type: DataTypes.STRING
+    },
+    currency: {
+      type: DataTypes.STRING
+    },
+    account_number: {
+      type: DataTypes.STRING
+    },
+    routing_code_type_1: {
+      type: DataTypes.STRING
+    },
+    routing_code_value_1: {
+      type: DataTypes.STRING
+    },
+    routing_code_type_2: {
+      type: DataTypes.STRING
+    },
+    routing_code_value_2: {
+      type: DataTypes.STRING
+    },
+    bic_swift: {
+      type: DataTypes.STRING
+    },
+    iban: {
+      type: DataTypes.STRING
+    },
+    default_beneficiary: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    creator_contact_id: {
+      type: DataTypes.INTEGER
+    },
+    bank_address: {
+      type: DataTypes.STRING
+    }
   }, {
     sequelize,
     modelName: 'Beneficiary',

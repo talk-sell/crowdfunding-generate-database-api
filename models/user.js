@@ -14,13 +14,36 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    email: DataTypes.STRING,
-    name: DataTypes.STRING,
-    picture: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    emailVerified: DataTypes.BOOLEAN,
-    kycVerified: DataTypes.BOOLEAN,
-    role: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    picture: {
+      type: DataTypes.STRING
+    },
+    phoneNumber: {
+      type: DataTypes.STRING
+    },
+    emailVerified: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    kycVerified: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'User',

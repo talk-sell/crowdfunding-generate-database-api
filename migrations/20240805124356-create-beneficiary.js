@@ -10,7 +10,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bank_account_holder_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       name: {
         type: Sequelize.STRING
@@ -91,7 +92,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       default_beneficiary: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       creator_contact_id: {
         type: Sequelize.INTEGER

@@ -11,11 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      CampaignGallery.belongsTo(models.Campaign, { foreignKey: 'campaignId' });
     }
   }
   CampaignGallery.init({
-    campaignId: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING
+    campaignId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Campaigns',
+        key: 'id'
+      }
+    },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'CampaignGallery',

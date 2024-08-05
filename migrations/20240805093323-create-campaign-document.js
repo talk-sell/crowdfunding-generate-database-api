@@ -10,16 +10,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       campaignId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Campaigns', // assuming you have a Campaigns table
+          key: 'id'
+        }
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       file: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       approved: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       message: {
         type: Sequelize.TEXT

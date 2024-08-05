@@ -10,19 +10,26 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       investmentId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Investments', // assuming you have an Investments table
+          key: 'id'
+        }
       },
       paymentDate: {
         type: Sequelize.DATE
       },
       amount: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(20, 2), // Adjust precision based on your requirements
+        allowNull: false
       },
       mainInvestmentReceived: {
         type: Sequelize.BOOLEAN
       },
       remainingInterest: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(20, 2), // Adjust precision based on your requirements
+        defaultValue: 0.0
       },
       createdAt: {
         allowNull: false,

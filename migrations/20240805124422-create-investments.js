@@ -10,25 +10,40 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users', // assuming you have a Users table
+          key: 'id'
+        }
       },
       campaign_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Campaigns', // assuming you have a Campaigns table
+          key: 'id'
+        }
       },
       amount: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(20, 2), // Adjust precision based on your requirements
+        allowNull: false
       },
       interestRate: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(5, 2),
+        allowNull: false
       },
       remaining_interest: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(20, 2), // Adjust precision based on your requirements
+        defaultValue: 0.0
       },
       invested_at: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

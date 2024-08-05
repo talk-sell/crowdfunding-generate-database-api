@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       account_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       legal_entity_type: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       street: {
         type: Sequelize.STRING
@@ -34,7 +36,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       state_or_province: {
         type: Sequelize.STRING
@@ -43,13 +46,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       api_trading: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       online_trading: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       phone_trading: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       identification_type: {
         type: Sequelize.STRING
@@ -58,7 +64,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       terms_and_conditions_accepted: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,

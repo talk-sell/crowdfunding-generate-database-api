@@ -10,25 +10,40 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       source_account_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Accounts', // assuming you have an Accounts table
+          key: 'id'
+        }
       },
       destination_account_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Accounts', // assuming you have an Accounts table
+          key: 'id'
+        }
       },
       currency: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       amount: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(20, 2), // Adjust precision based on your requirements
+        allowNull: false
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       reason: {
         type: Sequelize.TEXT
       },
       unique_request_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       createdAt: {
         allowNull: false,
